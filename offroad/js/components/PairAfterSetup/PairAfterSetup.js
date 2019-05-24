@@ -39,7 +39,7 @@ class PairAfterSetup extends Component {
                             color='ghost'
                             size='small'
                             onPress={ () => this.handlePressedBack() }>
-                            {'<  Pair EON'}
+                            {'<  配對 EON'}
                         </X.Button>
                     </View>
                     <View style={{ flex: 1 }}>

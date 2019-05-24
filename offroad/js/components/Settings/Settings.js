@@ -102,9 +102,9 @@ class Settings extends Component {
     handlePressedResetCalibration = async () => {
         this.props.deleteParam(Params.KEY_CALIBRATION_PARAMS);
         this.setState({ calibration: null });
-        Alert.alert('Reboot', 'Resetting calibration requires a reboot.', [
-            { text: 'Later', onPress: () => {}, style: 'cancel' },
-            { text: 'Reboot Now', onPress: () => ChffrPlus.reboot() },
+        Alert.alert('重新啟動', '重設校準需要重新啟動。', [
+            { text: '稍後', onPress: () => {}, style: 'cancel' },
+            { text: '馬上', onPress: () => ChffrPlus.reboot() },
         ]);
     }
 
@@ -160,7 +160,7 @@ class Settings extends Component {
             },
         } = this.props;
         const software = !!parseInt(isPassive) ? 'chffrplus' : 'openpilot';
-        let connectivity = 'Disconnected'
+        let connectivity = '已斷線'
         if (wifiState.isConnected && wifiState.ssid) {
             connectivity = wifiState.ssid;
         } else if (simState.networkType && simState.networkType != 'NO SIM') {
@@ -169,25 +169,25 @@ class Settings extends Component {
         const settingsMenuItems = [
             {
                 icon: Icons.user,
-                title: 'Account',
-                context: isPaired ? 'Paired' : 'Unpaired',
+                title: '帳號',
+                context: isPaired ? '已配對' : '未配對',
                 route: SettingsRoutes.ACCOUNT,
             },
             {
                 icon: Icons.eon,
-                title: 'Device',
-                context: `${ parseInt(freeSpace * 100) + '%' } Free`,
+                title: '裝置',
+                context: `剩餘 ${ parseInt(freeSpace * 100) + '%' }`,
                 route: SettingsRoutes.DEVICE,
             },
             {
                 icon: Icons.network,
-                title: 'Network',
+                title: '網路',
                 context: connectivity,
                 route: SettingsRoutes.NETWORK,
             },
             {
                 icon: Icons.developer,
-                title: 'Developer',
+                title: '開發人員',
                 context: `${ software } v${ version.split('-')[0] }`,
                 route: SettingsRoutes.DEVELOPER,
             },
@@ -247,7 +247,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Settings'}
+                        {'<  設定'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -259,37 +259,38 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='switch'
-                            title='Enable Driver Monitoring'
+                            title='啟用駕駛監控'
                             value={ !!parseInt(isDriverMonitoringEnabled) }
                             iconSource={ Icons.monitoring }
-                            description='Driver Monitoring detects driver awareness with 3D facial reconstruction and pose estimation. It is used to warn the driver when they appear distracted while openpilot is engaged. This feature is still in beta, so Driver Monitoring is unavailable when the facial tracking is too inaccurate (e.g. at night). The availability is indicated by the face icon at the bottom-left corner of your EON.'
+                            description='駕駛監控系統利用 3D 人臉/姿態識別來判斷駕駛的狀態。當 openpilot 啟用時，它會在駕駛分心時發出警示。這個功能仍然在測試階段，所以監控會在無法正確識別時暫時取消 (例如光線不足時)。您可以從 EON 左下角的人臉圖示來判斷它的狀態。'
                             isExpanded={ expandedCell == 'driver_monitoring' }
                             handleExpanded={ () => this.handleExpanded('driver_monitoring') }
                             handleChanged={ this.props.setDriverMonitoringEnabled } />
                         <X.TableCell
                             type='switch'
-                            title='Record and Upload Driver Camera'
+                            title='錄制並上傳駕駛的錄像'
                             value={ !!parseInt(isRecordFront) }
                             iconSource={ Icons.network }
-                            description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
+                            description='上傳前置相機的錄像來協助我們提升駕駛監控的準確率。'
                             isExpanded={ expandedCell == 'record_front' }
                             handleExpanded={ () => this.handleExpanded('record_front') }
                             handleChanged={ this.props.setRecordFront } />
                         <X.TableCell
                             type='switch'
-                            title='Enable Forward Collision Warning'
+                            title='啟用前方碰撞預警'
                             value={ !!parseInt(isFcwEnabled) }
                             iconSource={ Icons.warning }
-                            description='Use visual and acoustic warnings when risk of forward collision is detected.'
+                            description='當檢測到前方有碰撞的風險時，使用視覺和音效來警示。'
                             isExpanded={ expandedCell == 'fcw' }
                             handleExpanded={ () => this.handleExpanded('fcw') }
                             handleChanged={ this.props.setFcwEnabled } />
                         <X.TableCell
                             type='switch'
-                            title='Use Metric System'
+                            title='使用公/米制單位'
                             value={ !!parseInt(isMetric) }
                             iconSource={ Icons.metric }
-                            description='Display speed in km/h instead of mp/h and temperature in °C instead of °F.'
+                            description='開啟時，顯示 km/h (速度) 或 °C (溫度)，關閉時，顯示 mph (速度) 或 °F (溫度)。'
+                            //description='Display speed in km/h instead of mp/h and temperature in °C instead of °F.'
                             isExpanded={ expandedCell == 'metric' }
                             handleExpanded={ () => this.handleExpanded('metric') }
                             handleChanged={ () => this.handleChangedIsMetric() } />
@@ -298,9 +299,9 @@ class Settings extends Component {
                       <X.Table color='darkBlue'>
                         <X.TableCell
                             type='custom'
-                            title='Add Speed Limit Offset'
+                            title='速限補償'
                             iconSource={ Icons.speedLimit }
-                            description='Customize the default speed limit warning with an offset in km/h or mph above the posted legal limit when available.'
+                            description='當 EON 從圖資讀到路段速限時，您可以利用速限補償來微調定速 (單位是 km/h 或 mph)'
                             isExpanded={ expandedCell == 'speedLimitOffset' }
                             handleExpanded={ () => this.handleExpanded('speedLimitOffset') }
                             handleChanged={ this.props.setLimitSetSpeed }>
@@ -336,7 +337,7 @@ class Settings extends Component {
                             value={ !!parseInt(limitSetSpeed) }
                             isDisabled={ !parseInt(hasLongitudinalControl) }
                             iconSource={ Icons.mapSpeed }
-                            description='Use map data to control the vehicle speed. A curvy road icon appears when the car automatically slows down for upcoming turns. The vehicle speed is also limited by the posted legal limit, when available, including the custom offset. This feature is only available for cars where openpilot manages longitudinal control and when EON has internet connectivity. The map icon appears when map data are downloaded.'
+                            description='使用圖資來控制當前的車速。當您見到一個彎道圖示時，代表車子將會自動減速來過前方的彎道。當取得圖資資料後，車速將被限制在圖資上的速限 (外加速限補償設置)。這功能需要有網路連線以及能讓 openpilot 橫向控制的對應車種。當圖資下載完成後，您將會看到一個地圖圖示。'
                             isExpanded={ expandedCell == 'limitSetSpeed' }
                             handleExpanded={ () => this.handleExpanded('limitSetSpeed') }
                             handleChanged={ this.props.setLimitSetSpeed } />
@@ -379,7 +380,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Account Settings'}
+                        {'<  帳號設定'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -388,8 +389,8 @@ class Settings extends Component {
                     <View>
                         <X.Table>
                             <X.TableCell
-                                title='Device Paired'
-                                value={ isPaired ? 'Yes' : 'No' } />
+                                title='裝置已配對'
+                                value={ isPaired ? '是' : '否' } />
                         </X.Table>
                     </View>
                 </ScrollView>
@@ -420,7 +421,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Device Settings'}
+                        {'<  裝置設定'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -429,9 +430,9 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='custom'
-                            title='Camera Calibration'
+                            title='相機校準'
                             iconSource={ Icons.calibration }
-                            description='The calibration algorithm is always active on the road facing camera. Resetting calibration is only advised when EON reports an invalid calibration alert or when EON is remounted in a different position.'
+                            description='相機是一直在背後自動校準的。只有當您的 EON 發出校準無效的訊息或是您將 EON 安裝至不同的位置/車子時，才需要重設校準。'
                             isExpanded={ expandedCell == 'calibration' }
                             handleExpanded={ () => this.handleExpanded('calibration') }>
                             <X.Button
@@ -445,20 +446,20 @@ class Settings extends Component {
                     </X.Table>
                     <X.Table>
                         <X.TableCell
-                            title='Paired'
-                            value={ isPaired ? 'Yes' : 'No' } />
+                            title='已配對'
+                            value={ isPaired ? '是' : '否' } />
                         <X.TableCell
                             title='Dongle ID'
                             value={ dongleId } />
                         <X.TableCell
-                            title='Serial Number'
+                            title='序號'
                             value={ serialNumber } />
                         <X.TableCell
-                            title='Free Storage'
+                            title='剩餘空間'
                             value={ parseInt(freeSpace * 100) + '%' }
                              />
                         <X.TableCell
-                            title='Upload Speed'
+                            title='上傳速度'
                             value={ txSpeedKbps + ' kbps' }
                              />
                     </X.Table>
@@ -489,7 +490,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Network Settings'}
+                        {'<  網路設定'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -499,10 +500,10 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='switch'
-                            title='Enable Upload Over Cellular'
+                            title='允許使用手機網路上傳記錄'
                             value={ !!parseInt(isCellularUploadEnabled) }
                             iconSource={ Icons.network }
-                            description='Upload driving data over cellular connection if a sim card is used and no wifi network is available. If you have a limited data plan, you might incur in surcharges.'
+                            description='當您的 EON 有安裝 SIM 卡卻沒有無線網路連線時，這個選項將允許 EON 使用手機網路上傳記錄。如果您非使用吃到飽方案，您可能需付額外的費用。'
                             isExpanded={ expandedCell == 'cellular_enabled' }
                             handleExpanded={ () => this.handleExpanded('cellular_enabled') }
                             handleChanged={ this.props.setCellularEnabled } />
@@ -553,7 +554,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Developer Settings'}
+                        {'<  開發人員設定'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -564,20 +565,20 @@ class Settings extends Component {
                             title='Version'
                             value={ `${ software } v${ version }` } />
                         <X.TableCell
-                            title='Git Branch'
+                            title='Git 分支'
                             value={ gitBranch } />
                         <X.TableCell
-                            title='Git Revision'
+                            title='Git 修訂版'
                             value={ gitRevision.slice(0, 12) }
                             valueTextSize='tiny' />
                     </X.Table>
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='switch'
-                            title='Enable SSH'
+                            title='啟用 SSH'
                             value={ isSshEnabled }
                             iconSource={ Icons.developer }
-                            description='Allow devices to connect to your EON using Secure Shell (SSH).'
+                            description='允許別的裝置經由 Secure Shell (SSH) 連線至您的 EON。'
                             isExpanded={ expandedCell == 'ssh' }
                             handleExpanded={ () => this.handleExpanded('ssh') }
                             handleChanged={ this.props.setSshEnabled } />
@@ -587,7 +588,7 @@ class Settings extends Component {
                             color='settingsDefault'
                             size='small'
                             onPress={ this.props.uninstall }>
-                            { `Uninstall ${ software }` }
+                            { `卸載 ${ software }` }
                         </X.Button>
                     </X.Table>
                 </ScrollView>
@@ -646,21 +647,21 @@ const mapDispatchToProps = dispatch => ({
         }));
     },
     reboot: () => {
-        Alert.alert('Reboot', 'Are you sure you want to reboot?', [
-            { text: 'Cancel', onPress: () => {}, style: 'cancel' },
-            { text: 'Reboot', onPress: () => ChffrPlus.reboot() },
+        Alert.alert('重新啟動', 'Are you sure you want to reboot?', [
+            { text: '取消', onPress: () => {}, style: 'cancel' },
+            { text: '重新啟動', onPress: () => ChffrPlus.reboot() },
         ]);
     },
     shutdown: () => {
-        Alert.alert('Power Off', 'Are you sure you want to shutdown?', [
-            { text: 'Cancel', onPress: () => {}, style: 'cancel' },
-            { text: 'Shutdown', onPress: () => ChffrPlus.shutdown() },
+        Alert.alert('關機', '您確定要關機嗎?', [
+            { text: '取消', onPress: () => {}, style: 'cancel' },
+            { text: '關機', onPress: () => ChffrPlus.shutdown() },
         ]);
     },
     uninstall: () => {
-        Alert.alert('Uninstall', 'Are you sure you want to uninstall?', [
-            { text: 'Cancel', onPress: () => {}, style: 'cancel' },
-            { text: 'Uninstall', onPress: () => ChffrPlus.writeParam(Params.KEY_DO_UNINSTALL, "1") },
+        Alert.alert('卸載', '您確定要卸載嗎?', [
+            { text: '取消', onPress: () => {}, style: 'cancel' },
+            { text: '卸載', onPress: () => ChffrPlus.writeParam(Params.KEY_DO_UNINSTALL, "1") },
         ]);
     },
     openTrainingGuide: () => {

@@ -48,7 +48,7 @@ class Home extends Component {
                             weight='light'
                             size='small'
                             style={ Styles.homeActionsPrimaryButtonHeader }>
-                            Destination:
+                            目的地:
                         </X.Text>
                         { destination.address.length > 0
                             && destination.city.length > 0
@@ -78,7 +78,7 @@ class Home extends Component {
                                 color='white'
                                 size='small'
                                 weight='semibold'>
-                                New Destination
+                                新的目的地
                             </X.Text>
                         </View>
                     </View>
@@ -92,7 +92,7 @@ class Home extends Component {
                             color='white'
                             weight='semibold'
                             size='medium'>
-                            New Destination
+                            新的目的地
                         </X.Text>
                     </View>
                 }
@@ -113,7 +113,7 @@ class Home extends Component {
                       color='white'
                       weight='semibold'
                       size='medium'>
-                      New Drive
+                      新的行車記錄
                   </X.Text>
               </View>
           </PrimaryButton>
@@ -194,7 +194,7 @@ class Home extends Component {
                                                 <X.Text
                                                     color='white'
                                                     weight='semibold'>
-                                                    EON Paired
+                                                    EON 已配對
                                                 </X.Text>
                                             </View>
                                             :
@@ -206,7 +206,7 @@ class Home extends Component {
                                                 <X.Text
                                                     color='white'
                                                     weight='semibold'>
-                                                    Pair EON
+                                                    配對 EON
                                                 </X.Text>
                                             </View>
                                         }
