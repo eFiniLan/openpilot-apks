@@ -25,7 +25,7 @@ const Step = {
 
 const TabsByStep = {
     REVIEW_TERMS: [
-        'Review Terms',
+        '審核條款',
         '選擇無線網路',
         '加入 SIM 卡',
         '配對 EON',

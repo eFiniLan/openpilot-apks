@@ -41,7 +41,7 @@ export default class SetupTerms extends Component {
                 primaryButtonEnabled={ hasScrolled }>
                 <X.Text weight='semibold' color='white'>Comma.ai, Inc. 條款和條件</X.Text>
                 <X.Text size='small' color='white' style={ Styles.tosText }>{ Documents.TOS }</X.Text>
-                <X.Text size='small' color='white'>隱私政策請查看: https://community.comma.ai/privacy.html</X.Text>
+                <X.Text size='small' color='white'>隱私政策請至 https://community.comma.ai/privacy.html 查看</X.Text>
             </ScrollThrough>
         );
 
