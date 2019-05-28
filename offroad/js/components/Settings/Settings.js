@@ -561,7 +561,7 @@ class Settings extends Component {
                     style={ Styles.settingsWindow }>
                     <X.Table spacing='none'>
                         <X.TableCell
-                            title='Version'
+                            title='版本'
                             value={ `${ software } v${ version }` } />
                         <X.TableCell
                             title='Git 分支'
@@ -646,7 +646,7 @@ const mapDispatchToProps = dispatch => ({
         }));
     },
     reboot: () => {
-        Alert.alert('重新啟動', 'Are you sure you want to reboot?', [
+        Alert.alert('重新啟動', '您確定要重新啟動嗎?', [
             { text: '取消', onPress: () => {}, style: 'cancel' },
             { text: '重新啟動', onPress: () => ChffrPlus.reboot() },
         ]);
