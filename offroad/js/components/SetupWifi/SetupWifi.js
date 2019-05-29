@@ -217,20 +217,20 @@ class SetupWifi extends Component {
                         <View key="dialog_buttons" style={ { flexDirection: 'row' } }>
                             <DialogButton
                                 key="cancel"
-                                text="Cancel"
+                                text="取消"
                                 align="center"
                                 buttonStyle={ Styles.dialogButton }
                                 onPress={ this.onDismissPasswordPrompt }/>
                             <DialogButton
                                 key="connect"
-                                text="Connect"
+                                text="連線"
                                 align="center"
                                 buttonStyle={ Styles.dialogButton }
                                 onPress={ this.onPasswordPromptConnectPressed }/>
                         </View>
                     ] }>
                     <X.Text>
-                        Password
+                        密碼
                     </X.Text>
                     <TextInput
                         onChangeText={ (password) => this.setState({ password })}
@@ -259,14 +259,14 @@ class SetupWifi extends Component {
                         <X.Button
                             color='setupInverted'
                             onPress={ this.props.onMoreOptionsPress }>
-                            More Options
+                            更多選擇
                         </X.Button>
                     </View>
                     <View style={ Styles.nextButton }>
                         <X.Button
                             color={ connectedNetworkSsid ? 'setupPrimary' : 'setupInverted' }
                             onPress={ this.props.onContinue }>
-                            { connectedNetworkSsid === null ? 'Skip for now' : 'Continue' }
+                            { connectedNetworkSsid === null ? '略過' : '繼續' }
                         </X.Button>
                     </View>
                 </View>

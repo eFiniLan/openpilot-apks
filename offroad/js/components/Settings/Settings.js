@@ -163,7 +163,7 @@ class Settings extends Component {
         let connectivity = '已斷線'
         if (wifiState.isConnected && wifiState.ssid) {
             connectivity = wifiState.ssid;
-        } else if (simState.networkType && simState.networkType != 'NO SIM') {
+        } else if (simState.networkType && simState.networkType != '沒有 SIM') {
             connectivity = simState.networkType;
         }
         const settingsMenuItems = [
@@ -346,7 +346,7 @@ class Settings extends Component {
                         <X.Button
                             color='settingsDefault'
                             onPress={ () => this.props.openTrainingGuide() }>
-                            Review Training Guide
+                            查看使用教學
                         </X.Button>
                     </X.Table>
                     <X.Table color='darkBlue'>
@@ -354,14 +354,14 @@ class Settings extends Component {
                             size='small'
                             color='settingsDefault'
                             onPress={ () => this.props.reboot() }>
-                            Reboot
+                            重新啟動
                         </X.Button>
                         <X.Line color='transparent' size='tiny' spacing='mini' />
                         <X.Button
                             size='small'
                             color='settingsDefault'
                             onPress={ () => this.props.shutdown() }>
-                            Power Off
+                            關機
                         </X.Button>
                     </X.Table>
                 </ScrollView>
@@ -569,6 +569,10 @@ class Settings extends Component {
                         <X.TableCell
                             title='Git 修訂版'
                             value={ gitRevision.slice(0, 12) }
+                            valueTextSize='tiny' />
+                        <X.TableCell
+                            title='中文化'
+                            value='Rick Lan (https://github.com/efiniLan/)'
                             valueTextSize='tiny' />
                     </X.Table>
                     <X.Table color='darkBlue'>

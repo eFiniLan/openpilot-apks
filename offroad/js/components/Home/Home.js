@@ -229,7 +229,7 @@ class Home extends Component {
                                             <X.Text
                                                 color='white'
                                                 weight='semibold'>
-                                                Settings
+                                                設定
                                             </X.Text>
                                         </View>
                                     </X.Gradient>
