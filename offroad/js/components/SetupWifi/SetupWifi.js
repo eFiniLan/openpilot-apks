@@ -176,7 +176,7 @@ class SetupWifi extends Component {
                         resizeMode='contain' />
                     <View style={ Styles.networkDetails }>
                         <X.Text size='medium' color='white'>{ item.ssid }</X.Text>
-                        <X.Text size='small' color='white'>{ isConnected ? 'Connected' : item.security }</X.Text>
+                        <X.Text size='small' color='white'>{ isConnected ? '已連線' : item.security }</X.Text>
                     </View>
                     <View style={ Styles.networkRowRight }>
                         { isConnected ?

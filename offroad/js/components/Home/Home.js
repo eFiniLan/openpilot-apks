@@ -131,7 +131,7 @@ class Home extends Component {
                     color='white'
                     size='small'
                     weight='light'>
-                    { uploadsPrettySizeOnDisk } to upload
+                    還需上傳 { uploadsPrettySizeOnDisk }
                 </X.Text>
             );
         } else {
