@@ -170,7 +170,7 @@ class Settings extends Component {
             {
                 icon: Icons.user,
                 title: '帳號',
-                context: isPaired ? '已配對' : '未配對',
+                context: isPaired ? 'Paired' : 'Unpaired',
                 route: SettingsRoutes.ACCOUNT,
             },
             {
@@ -388,7 +388,7 @@ class Settings extends Component {
                     <View>
                         <X.Table>
                             <X.TableCell
-                                title='裝置已配對'
+                                title='已登錄裝置'
                                 value={ isPaired ? '是' : '否' } />
                         </X.Table>
                     </View>
