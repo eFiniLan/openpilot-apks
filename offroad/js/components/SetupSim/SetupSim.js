@@ -75,7 +75,7 @@ class SetupSim extends Component {
                 <View style={ Styles.statusRow }>
                     <View style={ Styles.status }>
                         <X.Text color='white'>
-                            { simState === 'ABSENT' ? 'Waiting for SIM...' : (networkName === null ? 'Searching for cellular networks...' : `Connected to ${networkName}`)}
+                            { simState === 'ABSENT' ? '等待 SIM 卡...' : (networkName === null ? '搜索手機行動網路中...' : `連線至 ${networkName}`)}
                         </X.Text>
                         { networkName !== null ?
                             <Image
@@ -114,7 +114,7 @@ class SetupSim extends Component {
                                     <X.Text
                                         color='white'
                                         weight='semibold'>
-                                        { networkName === null ? 'Waiting for network...' : '完成設定' }
+                                        { networkName === null ? '等待網路中...' : '完成設定' }
                                     </X.Text>
                                 </X.Gradient>
                             </X.Button>
