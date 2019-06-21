@@ -163,7 +163,7 @@ class Settings extends Component {
         let connectivity = '已斷線'
         if (wifiState.isConnected && wifiState.ssid) {
             connectivity = wifiState.ssid;
-        } else if (simState.networkType && simState.networkType != '沒有 SIM') {
+        } else if (simState.networkType && simState.networkType != 'NO SIM') {
             connectivity = simState.networkType;
         }
         const settingsMenuItems = [

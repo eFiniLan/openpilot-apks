@@ -721,7 +721,7 @@ class MainActivity : Activity(), NewDestinationReceiverDelegate, OffroadNavigati
                 "LTE"
             else -> {
                 if (simState == "ABSENT") {
-                    "無 SIM"
+                    "NO SIM"
                 } else {
                     CloudLog.log("No service detected. networkType ${telManager.networkType} lastNetworkType ${lastNetworkType}")
                     if (lastNetworkType != null) lastNetworkType!! else null
