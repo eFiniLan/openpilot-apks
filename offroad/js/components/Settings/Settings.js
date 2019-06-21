@@ -170,7 +170,7 @@ class Settings extends Component {
             {
                 icon: Icons.user,
                 title: '帳號',
-                context: isPaired ? 'Paired' : 'Unpaired',
+                context: isPaired ? '已配對' : '未配對',
                 route: SettingsRoutes.ACCOUNT,
             },
             {
