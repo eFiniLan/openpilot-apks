@@ -1,0 +1,89 @@
+version: 2
+jobs:
+  sdk:
+    machine:
+      docker_layer_caching: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker SDK image
+          command: docker build -t apks -f docker/Dockerfile docker
+  black:
+    machine:
+      docker_layer_caching: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker SDK image
+          command: docker build -t apks -f docker/Dockerfile docker
+      - run:
+          name: Build black
+          command: docker run -v $PWD:/tmp/openpilot/apks --rm apks /bin/sh -c 'cd black && ./build.sh'
+      - store_artifacts:
+          name: Store black apk
+          path: black/out.apk
+          destination: ai.comma.plus.black.apk
+  frame:
+    machine:
+      docker_layer_caching: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker SDK image
+          command: docker build -t apks -f docker/Dockerfile docker
+      - run:
+          name: Build frame
+          command: docker run -v $PWD:/tmp/openpilot/apks --rm apks /bin/sh -c 'cd frame && ./build.sh'
+      - store_artifacts:
+          name: Store frame apk
+          path: frame/out.apk
+          destination: ai.comma.plus.frame.apk
+  offroad:
+    machine:
+      docker_layer_caching: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker SDK image
+          command: docker build -t apks -f docker/Dockerfile docker
+      - run:
+          name: Build offroad
+          command: docker run -v $PWD:/tmp/openpilot/apks --rm apks /bin/sh -c 'cd offroad && ./build.sh'
+      - store_artifacts:
+          name: Store offroad apk
+          path: offroad/ai.comma.plus.offroad.apk
+          destination: ai.comma.plus.offroad.apk
+  setup:
+    machine:
+      docker_layer_caching: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker SDK image
+          command: docker build -t apks -f docker/Dockerfile docker
+      - run:
+          name: Build setup
+          command: docker run -v $PWD:/tmp/openpilot/apks --rm apks /bin/sh -c 'cd setup && ./build.sh'
+      - store_artifacts:
+          name: Store setup apk
+          path: setup/out.apk
+          destination: ai.comma.neos.setup.apk
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - sdk
+      - black:
+          requires:
+            - sdk
+      - frame:
+          requires:
+            - sdk
+      - offroad:
+          requires:
+            - sdk
+      - setup:
+          requires:
+            - sdk
+

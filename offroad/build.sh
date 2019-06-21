@@ -3,6 +3,15 @@ set -e
 
 APK_OUT=${1:-ai.comma.plus.offroad.apk}
 TOOLS="$PWD/../tools"
+CEREAL="$PWD/../../cereal"
+
+if [ ! -d $CEREAL ]; then
+  git clone https://github.com/commaai/cereal.git $CEREAL
+fi
+
+pushd $CEREAL
+make
+popd
 
 export SENTRY_WIZARD_INTEGRATION=reactNative
 
@@ -12,12 +21,6 @@ node_modules/.bin/react-native link
 mkdir -p android/app/src/main/assets
 rm android/app/src/main/assets/index.android.bundl* || true
 rm -r android/build android/app/build || true
-
-if [ -z "$DEBUG" ]; then
-    node_modules/.bin/react-native bundle --platform android --dev false --entry-file index.js \
-          --bundle-output android/app/src/main/assets/index.android.bundle \
-          --assets-dest android/app/src/main/res/
-fi
 
 echo "android/app/src/main/res/drawable-mdpi
 android/app/src/main/res/drawable-hdpi
