@@ -239,6 +239,7 @@ class Settings extends Component {
                 SpeedLimitOffset: speedLimitOffset,
                 // dragonpilot
                 DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
+                DragonEnableDashcam: dragonEnableDashcam,
             }
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -304,6 +305,15 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'disable_on_signal' }
                             handleExpanded={ () => this.handleExpanded('disable_on_signal') }
                             handleChanged={ this.props.setDisableOnSignal } />
+                        <X.TableCell
+                            type='switch'
+                            title='Enable Dashcam'
+                            value={ !!parseInt(dragonEnableDashcam) }
+                            iconSource={ Icons.developer }
+                            description='Record EON screen as dashcam footage, it will automatically delete old footage if the available space is less than 15%'
+                            isExpanded={ expandedCell == 'dashcam' }
+                            handleExpanded={ () => this.handleExpanded('dashcam') }
+                            handleChanged={ this.props.setEnableDashcam } />
                       </X.Table>
                       {/*
                       <X.Table color='darkBlue'>
@@ -714,6 +724,9 @@ const mapDispatchToProps = dispatch => ({
     // dragonpilot
     setDisableOnSignal: (disableOnSignal) => {
         dispatch(updateParam(Params.KEY_DISABLE_ON_SIGNAL, (disableOnSignal | 0).toString()));
+    },
+    setEnableDashcam: (enableDashcam) => {
+        dispatch(updateParam(Params.KEY_ENABLE_DASHCAM, (enableDashcam | 0).toString()));
     },
 });
 
