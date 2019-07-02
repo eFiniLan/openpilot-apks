@@ -237,6 +237,8 @@ class Settings extends Component {
                 LongitudinalControl: hasLongitudinalControl,
                 LimitSetSpeed: limitSetSpeed,
                 SpeedLimitOffset: speedLimitOffset,
+                // dragonpilot
+                DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
             }
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -293,6 +295,15 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'metric' }
                             handleExpanded={ () => this.handleExpanded('metric') }
                             handleChanged={ this.props.setMetric } />
+                        <X.TableCell
+                            type='switch'
+                            title='Disable Steering On Blinker'
+                            value={ !!parseInt(dragonTempDisableSteerOnSignal) }
+                            iconSource={ Icons.developer }
+                            description='Temporary disable steering control when left/right blinker is on, will resume 1 second after the blinker is off.'
+                            isExpanded={ expandedCell == 'disable_on_signal' }
+                            handleExpanded={ () => this.handleExpanded('disable_on_signal') }
+                            handleChanged={ this.props.setDisableOnSignal } />
                       </X.Table>
                       {/*
                       <X.Table color='darkBlue'>
@@ -699,6 +710,10 @@ const mapDispatchToProps = dispatch => ({
     },
     deleteParam: (param) => {
         dispatch(deleteParam(param));
+    },
+    // dragonpilot
+    setDisableOnSignal: (disableOnSignal) => {
+        dispatch(updateParam(Params.KEY_DISABLE_ON_SIGNAL, (disableOnSignal | 0).toString()));
     },
 });
 

@@ -28,6 +28,8 @@ const PARAMS = [
   "SpeedLimitOffset",
   "TrainingVersion",
   "Version",
+  // dragonpilot
+  "DragonTempDisableSteerOnSignal",
 ];
 
 export function refreshParams() {
