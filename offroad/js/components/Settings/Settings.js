@@ -563,6 +563,10 @@ class Settings extends Component {
                             title='Git Revision'
                             value={ gitRevision.slice(0, 12) }
                             valueTextSize='tiny' />
+                        <X.TableCell
+                            title='English Localisation'
+                            value='comma.ai (https://github.com/commaai/)'
+                            valueTextSize='tiny' />
                     </X.Table>
                     <X.Table color='darkBlue'>
                         <X.TableCell
