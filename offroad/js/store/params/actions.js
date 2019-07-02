@@ -30,7 +30,8 @@ const PARAMS = [
   "Version",
   // dragonpilot
   "DragonTempDisableSteerOnSignal",
-  "DragonEnableDashcam"
+  "DragonEnableDashcam",
+  "DragonDisableDriverSafetyCheck",
 ];
 
 export function refreshParams() {

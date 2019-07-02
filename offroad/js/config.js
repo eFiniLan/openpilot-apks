@@ -27,4 +27,5 @@ export const Params = {
     // dragonpilot
     KEY_DISABLE_ON_SIGNAL: 'DragonTempDisableSteerOnSignal',
     KEY_ENABLE_DASHCAM: 'DragonEnableDashcam',
+    KEY_DISABLE_DRIVER_SAFETY_CHECK: 'DragonDisableDriverSafetyCheck'
 };

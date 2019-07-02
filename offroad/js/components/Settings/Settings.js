@@ -240,6 +240,7 @@ class Settings extends Component {
                 // dragonpilot
                 DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
                 DragonEnableDashcam: dragonEnableDashcam,
+                DragonDisableDriverSafetyCheck: dragonDisableDriverSafetyCheck,
             }
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -314,6 +315,15 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'dashcam' }
                             handleExpanded={ () => this.handleExpanded('dashcam') }
                             handleChanged={ this.props.setEnableDashcam } />
+                        <X.TableCell
+                            type='switch'
+                            title='Disable Driver Safety Check'
+                            value={ !!parseInt(dragonDisableDriverSafetyCheck) }
+                            iconSource={ Icons.developer }
+                            description='Disable driver safety check, we hold no responsibility if you enable this option.'
+                            isExpanded={ expandedCell == 'safetyCheck' }
+                            handleExpanded={ () => this.handleExpanded('safetyCheck') }
+                            handleChanged={ this.props.setDriverSafetyCheck } />
                       </X.Table>
                       {/*
                       <X.Table color='darkBlue'>
@@ -727,6 +737,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setEnableDashcam: (enableDashcam) => {
         dispatch(updateParam(Params.KEY_ENABLE_DASHCAM, (enableDashcam | 0).toString()));
+    },
+    setDriverSafetyCheck: (safetyCheck) => {
+        dispatch(updateParam(Params.KEY_DISABLE_DRIVER_SAFETY_CHECK, (safetyCheck | 0).toString()));
     },
 });
 
