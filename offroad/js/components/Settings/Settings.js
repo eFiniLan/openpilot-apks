@@ -241,6 +241,7 @@ class Settings extends Component {
                 DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
                 DragonEnableDashcam: dragonEnableDashcam,
                 DragonDisableDriverSafetyCheck: dragonDisableDriverSafetyCheck,
+                DragonAutoShutdownAt: dragonAutoShutdownAt,
             }
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -324,6 +325,15 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'safetyCheck' }
                             handleExpanded={ () => this.handleExpanded('safetyCheck') }
                             handleChanged={ this.props.setDriverSafetyCheck } />
+                        <X.TableCell
+                            type='switch'
+                            title='Enable Auto Shutdown'
+                            value={ parseInt(dragonAutoShutdownAt) > 0 }
+                            iconSource={ Icons.developer }
+                            description='Shutdown EON when usb power is not present for 30 minutes.'
+                            isExpanded={ expandedCell == 'autoShutdown' }
+                            handleExpanded={ () => this.handleExpanded('autoShutdown') }
+                            handleChanged={ this.props.setAutoShutdown } />
                       </X.Table>
                       {/*
                       <X.Table color='darkBlue'>
@@ -740,6 +750,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setDriverSafetyCheck: (safetyCheck) => {
         dispatch(updateParam(Params.KEY_DISABLE_DRIVER_SAFETY_CHECK, (safetyCheck | 0).toString()));
+    },
+    setAutoShutdown: (autoShutdown) => {
+        dispatch(updateParam(Params.KEY_AUTO_SHUTDOWN, (autoShutdown? 30 : 0).toString()));
     },
 });
 

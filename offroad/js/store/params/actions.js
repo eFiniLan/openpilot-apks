@@ -32,6 +32,7 @@ const PARAMS = [
   "DragonTempDisableSteerOnSignal",
   "DragonEnableDashcam",
   "DragonDisableDriverSafetyCheck",
+  "DragonAutoShutdownAt",
 ];
 
 export function refreshParams() {
