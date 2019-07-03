@@ -300,37 +300,37 @@ class Settings extends Component {
                             handleChanged={ this.props.setMetric } />
                         <X.TableCell
                             type='switch'
-                            title='Disable Steering On Blinker'
+                            title='方向燈暫時取消方向盤控制'
                             value={ !!parseInt(dragonTempDisableSteerOnSignal) }
                             iconSource={ Icons.developer }
-                            description='Temporary disable steering control when left/right blinker is on, will resume 1 second after the blinker is off.'
+                            description='當方向燈亮起時，暫時取消方向盤控制，OP 將會在方向燈熄滅後 1 秒取回控制。'
                             isExpanded={ expandedCell == 'disable_on_signal' }
                             handleExpanded={ () => this.handleExpanded('disable_on_signal') }
                             handleChanged={ this.props.setDisableOnSignal } />
                         <X.TableCell
                             type='switch'
-                            title='Enable Dashcam'
+                            title='啟用行車記錄'
                             value={ !!parseInt(dragonEnableDashcam) }
                             iconSource={ Icons.developer }
-                            description='Record EON screen as dashcam footage, it will automatically delete old footage if the available space is less than 15%'
+                            description='錄下 EON 的畫面當做行車記錄，當系統的空間不足 15% 時會自動刪除舊的記錄。'
                             isExpanded={ expandedCell == 'dashcam' }
                             handleExpanded={ () => this.handleExpanded('dashcam') }
                             handleChanged={ this.props.setEnableDashcam } />
                         <X.TableCell
                             type='switch'
-                            title='Disable Driver Safety Check'
+                            title='啟用睡覺模式'
                             value={ !!parseInt(dragonDisableDriverSafetyCheck) }
                             iconSource={ Icons.developer }
-                            description='Disable driver safety check, we hold no responsibility if you enable this option.'
+                            description='這個功能將會完全取消駕駛監控，除非你知道你在做什麼，不然我們不建議你使用，我們也不會負任何事故的責任。'
                             isExpanded={ expandedCell == 'safetyCheck' }
                             handleExpanded={ () => this.handleExpanded('safetyCheck') }
                             handleChanged={ this.props.setDriverSafetyCheck } />
                         <X.TableCell
                             type='switch'
-                            title='Enable Auto Shutdown'
+                            title='啟用自動關機'
                             value={ parseInt(dragonAutoShutdownAt) > 0 }
                             iconSource={ Icons.developer }
-                            description='Shutdown EON when usb power is not present for 30 minutes.'
+                            description='啟用這個選項後，當 Panda 的 USB 停止供電時 EON 將會在 30 分鐘後自動關機。'
                             isExpanded={ expandedCell == 'autoShutdown' }
                             handleExpanded={ () => this.handleExpanded('autoShutdown') }
                             handleChanged={ this.props.setAutoShutdown } />
