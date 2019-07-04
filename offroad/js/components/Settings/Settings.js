@@ -318,10 +318,10 @@ class Settings extends Component {
                             handleChanged={ this.props.setEnableDashcam } />
                         <X.TableCell
                             type='switch'
-                            title='Disable Driver Safety Check'
+                            title='Enable Sleep Mode'
                             value={ !!parseInt(dragonDisableDriverSafetyCheck) }
                             iconSource={ Icons.developer }
-                            description='Disable driver safety check, we hold no responsibility if you enable this option.'
+                            description='This will disable driver safety check completely, we don not recommend that you turn on this unless you know what you are doing, we hold no responsibility if you enable this option.'
                             isExpanded={ expandedCell == 'safetyCheck' }
                             handleExpanded={ () => this.handleExpanded('safetyCheck') }
                             handleChanged={ this.props.setDriverSafetyCheck } />
