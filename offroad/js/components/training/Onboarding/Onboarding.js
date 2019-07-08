@@ -259,7 +259,7 @@ class Onboarding extends Component {
                     color='white' weight='light'
                     style={ Styles.onboardingStepContext }>
                     現在您已經完全設定好了，在您開始測試 openpilot alpha 版之前，請您務必先了解到它的功能和限制。
-\                </X.Text>
+                </X.Text>
                 <View style={ Styles.onboardingPrimaryAction }>
                     <X.Button
                         color='setupPrimary'
