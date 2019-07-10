@@ -116,6 +116,7 @@ class DragonpilotSettings extends Component {
     renderPrimarySettings() {
         const {
             params: {
+                DragonDisableLogger: dragonDisableLogger,
                 DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
                 DragonEnableDashcam: dragonEnableDashcam,
                 DragonDisableDriverSafetyCheck: dragonDisableDriverSafetyCheck,
@@ -146,6 +147,15 @@ class DragonpilotSettings extends Component {
                             valueTextSize='tiny' />
                     </X.Table>
                     <X.Table color='darkBlue'>
+                        <X.TableCell
+                            type='switch'
+                            title='Disable Logger'
+                            value={ !!parseInt(dragonDisableLogger) }
+                            iconSource={ Icons.developer }
+                            description='Disable logger (loggered/tombstoned) so it will never record driving data, reboot required.'
+                            isExpanded={ expandedCell == 'disable_logger' }
+                            handleExpanded={ () => this.handleExpanded('disable_logger') }
+                            handleChanged={ this.props.setDisableLogger } />
                         <X.TableCell
                             type='switch'
                             title='Disable Steering On Blinker'
@@ -281,6 +291,9 @@ const mapDispatchToProps = dispatch => ({
         dispatch(deleteParam(param));
     },
     // dragonpilot
+    setDisableLogger: (disableLogger) => {
+        dispatch(updateParam(Params.KEY_DISABLE_LOGGER, (disableLogger | 0).toString()));
+    },
     setDisableOnSignal: (disableOnSignal) => {
         dispatch(updateParam(Params.KEY_DISABLE_ON_SIGNAL, (disableOnSignal | 0).toString()));
     },
