@@ -30,4 +30,5 @@ export const Params = {
     KEY_ENABLE_DASHCAM: 'DragonEnableDashcam',
     KEY_DISABLE_DRIVER_SAFETY_CHECK: 'DragonDisableDriverSafetyCheck',
     KEY_AUTO_SHUTDOWN: 'DragonAutoShutdownAt',
+    KEY_ENABLE_NOCTUA_MODE: 'DragonNoctuaMode'
 };

@@ -34,6 +34,7 @@ const PARAMS = [
   "DragonEnableDashcam",
   "DragonDisableDriverSafetyCheck",
   "DragonAutoShutdownAt",
+  "DragonNoctuaMode",
 ];
 
 export function refreshParams() {

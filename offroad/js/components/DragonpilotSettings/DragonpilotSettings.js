@@ -121,6 +121,7 @@ class DragonpilotSettings extends Component {
                 DragonEnableDashcam: dragonEnableDashcam,
                 DragonDisableDriverSafetyCheck: dragonDisableDriverSafetyCheck,
                 DragonAutoShutdownAt: dragonAutoShutdownAt,
+                DragonNoctuaMode: dragonNoctuaMode,
             }
         } = this.props;
         const { expandedCell } = this.state;
@@ -170,7 +171,7 @@ class DragonpilotSettings extends Component {
                             title='Enable Dashcam'
                             value={ !!parseInt(dragonEnableDashcam) }
                             iconSource={ Icons.developer }
-                            description='Record EON screen as dashcam footage, it will automatically delete old footage if the available space is less than 15%'
+                            description='Record EON screen as dashcam footage, it will automatically delete old footage if the available space is less than 15%, footage will be stored in /sdcard/dashcam/.'
                             isExpanded={ expandedCell == 'dashcam' }
                             handleExpanded={ () => this.handleExpanded('dashcam') }
                             handleChanged={ this.props.setEnableDashcam } />
@@ -192,6 +193,15 @@ class DragonpilotSettings extends Component {
                             isExpanded={ expandedCell == 'autoShutdown' }
                             handleExpanded={ () => this.handleExpanded('autoShutdown') }
                             handleChanged={ this.props.setAutoShutdown } />
+                        <X.TableCell
+                            type='switch'
+                            title='Enable Noctua Fan Mode'
+                            value={ !!parseInt(dragonNoctuaMode) }
+                            iconSource={ Icons.developer }
+                            description='Enable this will let the fan running at full speed at any temperature, reboot required.'
+                            isExpanded={ expandedCell == 'enable_noctua_mode' }
+                            handleExpanded={ () => this.handleExpanded('enable_noctua_mode') }
+                            handleChanged={ this.props.setNoctuaMode } />
                     </X.Table>
                 </ScrollView>
             </View>
@@ -305,6 +315,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setAutoShutdown: (autoShutdown) => {
         dispatch(updateParam(Params.KEY_AUTO_SHUTDOWN, (autoShutdown? 30 : 0).toString()));
+    },
+    setNoctuaMode: (noctuaMode) => {
+        dispatch(updateParam(Params.KEY_ENABLE_NOCTUA_MODE, (noctuaMode | 0).toString()));
     },
 });
 
