@@ -133,7 +133,7 @@ class DragonpilotSettings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Settings'}
+                        {'<  Dragonpilot Settings'}
                     </X.Button>
                 </View>
                 <ScrollView
