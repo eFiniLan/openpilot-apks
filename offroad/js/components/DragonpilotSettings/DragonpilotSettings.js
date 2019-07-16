@@ -116,6 +116,7 @@ class DragonpilotSettings extends Component {
     renderPrimarySettings() {
         const {
             params: {
+                DragonAllowGas: dragonAllowGas,
                 DragonDisableLogger: dragonDisableLogger,
                 DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
                 DragonEnableDashcam: dragonEnableDashcam,
@@ -149,6 +150,15 @@ class DragonpilotSettings extends Component {
                             valueTextSize='tiny' />
                     </X.Table>
                     <X.Table color='darkBlue'>
+                        <X.TableCell
+                            type='switch'
+                            title='Allow Gas'
+                            value={ !!parseInt(dragonAllowGas) }
+                            iconSource={ Icons.developer }
+                            description='Enable this if you wish to use gas on engaged.'
+                            isExpanded={ expandedCell == 'allow_gas' }
+                            handleExpanded={ () => this.handleExpanded('allow_gas') }
+                            handleChanged={ this.props.setAllowGas } />
                         <X.TableCell
                             type='switch'
                             title='Disable Logger'
@@ -311,6 +321,9 @@ const mapDispatchToProps = dispatch => ({
         dispatch(deleteParam(param));
     },
     // dragonpilot
+    setAllowGas: (allowGas) => {
+        dispatch(updateParam(Params.KEY_ALLOW_GAS, (allowGas | 0).toString()));
+    },
     setDisableLogger: (disableLogger) => {
         dispatch(updateParam(Params.KEY_DISABLE_LOGGER, (disableLogger | 0).toString()));
     },
