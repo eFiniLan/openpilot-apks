@@ -27,6 +27,7 @@ export const Params = {
     // dragonpilot
     KEY_ALLOW_GAS: 'DragonAllowGas',
     KEY_DISABLE_LOGGER: 'DragonDisableLogger',
+    KEY_DISABLE_UPLOADER: 'DragonDisableUploader',
     KEY_DISABLE_ON_SIGNAL: 'DragonTempDisableSteerOnSignal',
     KEY_ENABLE_DASHCAM: 'DragonEnableDashcam',
     KEY_DISABLE_DRIVER_SAFETY_CHECK: 'DragonDisableDriverSafetyCheck',

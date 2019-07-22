@@ -118,6 +118,7 @@ class DragonpilotSettings extends Component {
             params: {
                 DragonAllowGas: dragonAllowGas,
                 DragonDisableLogger: dragonDisableLogger,
+                DragonDisableUploader: dragonDisableUploader,
                 DragonTempDisableSteerOnSignal: dragonTempDisableSteerOnSignal,
                 DragonEnableDashcam: dragonEnableDashcam,
                 DragonDisableDriverSafetyCheck: dragonDisableDriverSafetyCheck,
@@ -168,6 +169,15 @@ class DragonpilotSettings extends Component {
                             isExpanded={ expandedCell == 'disable_logger' }
                             handleExpanded={ () => this.handleExpanded('disable_logger') }
                             handleChanged={ this.props.setDisableLogger } />
+                        <X.TableCell
+                            type='switch'
+                            title='Disable Uploader'
+                            value={ !!parseInt(dragonDisableUploader) }
+                            iconSource={ Icons.developer }
+                            description='Disable uploader so it will stop uploading driving data, reboot required.'
+                            isExpanded={ expandedCell == 'disable_uploader' }
+                            handleExpanded={ () => this.handleExpanded('disable_uploader') }
+                            handleChanged={ this.props.setDisableUploader } />
                         <X.TableCell
                             type='switch'
                             title='Disable Steering On Blinker'
@@ -326,6 +336,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setDisableLogger: (disableLogger) => {
         dispatch(updateParam(Params.KEY_DISABLE_LOGGER, (disableLogger | 0).toString()));
+    },
+    setDisableUploader: (disableUploader) => {
+        dispatch(updateParam(Params.KEY_DISABLE_UPLOADER, (disableUploader | 0).toString()));
     },
     setDisableOnSignal: (disableOnSignal) => {
         dispatch(updateParam(Params.KEY_DISABLE_ON_SIGNAL, (disableOnSignal | 0).toString()));

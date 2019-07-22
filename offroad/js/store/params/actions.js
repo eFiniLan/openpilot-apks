@@ -31,6 +31,7 @@ const PARAMS = [
   // dragonpilot
   "DragonAllowGas",
   "DragonDisableLogger",
+  "DragonDisableUploader",
   "DragonTempDisableSteerOnSignal",
   "DragonEnableDashcam",
   "DragonDisableDriverSafetyCheck",
