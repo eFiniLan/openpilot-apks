@@ -26,6 +26,7 @@ export const Params = {
     KEY_LIVE_PARAMETERS: 'LiveParameters',
     // dragonpilot
     KEY_DISABLE_LOGGER: 'DragonDisableLogger',
+    KEY_DISABLE_UPLOADER: 'DragonDisableUploader',
     KEY_DISABLE_ON_SIGNAL: 'DragonTempDisableSteerOnSignal',
     KEY_ENABLE_DASHCAM: 'DragonEnableDashcam',
     KEY_DISABLE_DRIVER_SAFETY_CHECK: 'DragonDisableDriverSafetyCheck',
