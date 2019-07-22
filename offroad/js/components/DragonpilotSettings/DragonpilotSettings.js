@@ -165,7 +165,7 @@ class DragonpilotSettings extends Component {
                             title='Disable Logger'
                             value={ !!parseInt(dragonDisableLogger) }
                             iconSource={ Icons.developer }
-                            description='Disable logger (loggered/tombstoned) so it will never record driving data, reboot required.'
+                            description='Disable logger (loggered/tombstoned) so it will never record driving data to comma ai, reboot required.'
                             isExpanded={ expandedCell == 'disable_logger' }
                             handleExpanded={ () => this.handleExpanded('disable_logger') }
                             handleChanged={ this.props.setDisableLogger } />
