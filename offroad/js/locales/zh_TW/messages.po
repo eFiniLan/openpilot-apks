@@ -57,6 +57,10 @@ msgstr "提示"
 msgid "ALL TIME"
 msgstr "全部"
 
+#: js/components/SetupTerms/SetupTerms.js:43
+msgid "Accept Terms and Conditions"
+msgstr "同意本條款"
+
 #: js/components/Settings/Settings.js:201
 msgid "Account"
 msgstr "帳號"
@@ -129,7 +133,7 @@ msgstr "取消"
 
 #: js/components/SetupTerms/SetupTerms.js:47
 msgid "Comma.ai, Inc. Terms & Conditions"
-msgstr "Comma.ai, Inc. 條款及細則"
+msgstr "Comma.ai, Inc. 條款"
 
 #: js/components/Settings/Settings.js:923
 msgid "Community maintained features are not confirmed by comma.ai to meet the standard safety model. Be extra cautious using them."
@@ -170,6 +174,10 @@ msgstr "不斷觀察周圍環境的安全並同時將方向盤輕輕推向想切
 #: js/components/Home/Home.js:360
 msgid "DRIVES"
 msgstr "行駛"
+
+#: js/components/SetupTerms/SetupTerms.js:45
+msgid "Decline"
+msgstr "拒绝"
 
 #: js/components/Settings/Settings.js:219
 msgid "Developer"
@@ -421,6 +429,10 @@ msgstr "隱私政策請參閱 https://my.comma.ai/privacy.html"
 msgid "Radar from your car"
 msgstr "來自您車子的雷達"
 
+#: js/components/SetupTerms/SetupTerms.js:44
+msgid "Read to Continue"
+msgstr "繼續閱讀"
+
 #: js/components/Settings/Settings.js:134
 #: js/components/Settings/Settings.js:551
 #: js/components/Settings/Settings.js:868
@@ -466,7 +478,7 @@ msgstr "重新開始"
 
 #: js/components/SetupTerms/SetupTerms.js:38
 msgid "Review Terms"
-msgstr "審核條款"
+msgstr "閱讀條款"
 
 #: js/components/Settings/Settings.js:403
 msgid "Review Training Guide"

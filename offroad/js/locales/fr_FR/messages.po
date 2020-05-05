@@ -57,6 +57,10 @@ msgstr "ALERTES"
 msgid "ALL TIME"
 msgstr "TOUT LE TEMPS"
 
+#: js/components/SetupTerms/SetupTerms.js:43
+msgid "Accept Terms and Conditions"
+msgstr ""
+
 #: js/components/Settings/Settings.js:201
 msgid "Account"
 msgstr "Compte"
@@ -170,6 +174,10 @@ msgstr "Observez votre environnement en permanence en toute sécurité tout en p
 #: js/components/Home/Home.js:360
 msgid "DRIVES"
 msgstr "TRAJETS"
+
+#: js/components/SetupTerms/SetupTerms.js:45
+msgid "Decline"
+msgstr ""
 
 #: js/components/Settings/Settings.js:219
 msgid "Developer"
@@ -420,6 +428,10 @@ msgstr "La politique de confidentialité est disponible à https://my.comma.ai/p
 #: js/components/training/Onboarding/Onboarding.js:519
 msgid "Radar from your car"
 msgstr "Radar de votre voiture"
+
+#: js/components/SetupTerms/SetupTerms.js:44
+msgid "Read to Continue"
+msgstr ""
 
 #: js/components/Settings/Settings.js:134
 #: js/components/Settings/Settings.js:551

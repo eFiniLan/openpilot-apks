@@ -57,6 +57,10 @@ msgstr "ALERTAS"
 msgid "ALL TIME"
 msgstr "O TEMPO TODO"
 
+#: js/components/SetupTerms/SetupTerms.js:43
+msgid "Accept Terms and Conditions"
+msgstr ""
+
 #: js/components/Settings/Settings.js:201
 msgid "Account"
 msgstr "Conta"
@@ -170,6 +174,10 @@ msgstr "Observe continuamente ao seu redor por segurança e empurre gentilmente 
 #: js/components/Home/Home.js:360
 msgid "DRIVES"
 msgstr "TRAJETOS"
+
+#: js/components/SetupTerms/SetupTerms.js:45
+msgid "Decline"
+msgstr ""
 
 #: js/components/Settings/Settings.js:219
 msgid "Developer"
@@ -420,6 +428,10 @@ msgstr ""
 #: js/components/training/Onboarding/Onboarding.js:519
 msgid "Radar from your car"
 msgstr "Ragar do seu carro"
+
+#: js/components/SetupTerms/SetupTerms.js:44
+msgid "Read to Continue"
+msgstr ""
 
 #: js/components/Settings/Settings.js:134
 #: js/components/Settings/Settings.js:551

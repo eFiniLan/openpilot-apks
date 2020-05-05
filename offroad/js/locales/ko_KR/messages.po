@@ -57,6 +57,10 @@ msgstr "경고"
 msgid "ALL TIME"
 msgstr "전체 시간"
 
+#: js/components/SetupTerms/SetupTerms.js:43
+msgid "Accept Terms and Conditions"
+msgstr ""
+
 #: js/components/Settings/Settings.js:201
 msgid "Account"
 msgstr "계정"
@@ -170,6 +174,10 @@ msgstr "핸들을 원하는 차선으로 부드럽게 밀어내고 주변 안전
 #: js/components/Home/Home.js:360
 msgid "DRIVES"
 msgstr "주행수"
+
+#: js/components/SetupTerms/SetupTerms.js:45
+msgid "Decline"
+msgstr ""
 
 #: js/components/Settings/Settings.js:219
 msgid "Developer"
@@ -420,6 +428,10 @@ msgstr "개인 정보 보호 정책 : https://my.comma.ai/privacy.html"
 #: js/components/training/Onboarding/Onboarding.js:519
 msgid "Radar from your car"
 msgstr "차량의 레이더"
+
+#: js/components/SetupTerms/SetupTerms.js:44
+msgid "Read to Continue"
+msgstr ""
 
 #: js/components/Settings/Settings.js:134
 #: js/components/Settings/Settings.js:551

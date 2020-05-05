@@ -7,6 +7,7 @@ import frFR from '../locales/fr_FR/messages.js';
 import jaJP from '../locales/ja_JP/messages.js';
 import ptBR from '../locales/pt_BR/messages.js';
 import koKR from '../locales/ko_KR/messages.js';
+import deDE from '../locales/de_DE/messages.js';
 
 import moment from 'moment';
 import 'moment/locale/zh-tw';
@@ -15,6 +16,7 @@ import 'moment/locale/fr';
 import 'moment/locale/ja';
 import 'moment/locale/pt-br';
 import 'moment/locale/ko';
+import 'moment/locale/de';
 
 // define which locale use which translate file
 let supportedLanguage = {
@@ -25,6 +27,7 @@ let supportedLanguage = {
     'ja_JP': jaJP,
     'pt_BR': ptBR,
     'ko_KR': koKR,
+    'de_DE': deDE,
 };
 
 const locale = NativeModules.I18nManager.localeIdentifier; // zh_TW_#Hant, zh_CN_#Hans
