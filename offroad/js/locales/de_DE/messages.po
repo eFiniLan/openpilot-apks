@@ -268,7 +268,7 @@ msgstr "Training beenden"
 
 #: js/components/Settings/Settings.js:538
 msgid "Free Storage"
-msgstr "Kostenloser Speicherplatz"
+msgstr "Freien Speicherplatz"
 
 #: js/components/Settings/Settings.js:679
 msgid "Git Branch"
