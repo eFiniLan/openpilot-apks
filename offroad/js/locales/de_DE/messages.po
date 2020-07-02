@@ -268,7 +268,7 @@ msgstr "Training beenden"
 
 #: js/components/Settings/Settings.js:538
 msgid "Free Storage"
-msgstr "Kostenloser Speicherplatz"
+msgstr "Freien Speicherplatz"
 
 #: js/components/Settings/Settings.js:679
 msgid "Git Branch"
@@ -462,7 +462,7 @@ msgstr "Alles entfernen"
 
 #: js/components/Settings/Settings.js:505
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Reset"
 
 #: js/components/Settings/Settings.js:134
 msgid "Resetting calibration requires a reboot."
