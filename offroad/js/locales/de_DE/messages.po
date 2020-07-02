@@ -462,7 +462,7 @@ msgstr "Alles entfernen"
 
 #: js/components/Settings/Settings.js:505
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Reset"
 
 #: js/components/Settings/Settings.js:134
 msgid "Resetting calibration requires a reboot."
